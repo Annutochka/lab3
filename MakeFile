@@ -5,7 +5,7 @@ OBJ = $(CC) -c -o  $(CFLAGS)
 
 
 
-default: bin/chess create
+default: create bin/chess
 
 create:
 mkdir -p build
