@@ -1,30 +1,28 @@
 CFLAGS = -Wall -Werror -std=c99
 CC = gcc
-OBJ = $(CC) -c $< -o $@ $(CFLAGS)
-MKDIR_BUILD = mkdir -p build/src
-
-
-
-default: bin/chess.exe
+OBJ = $(CC) -c -o  $(CFLAGS)
 
 
 
 
-bin/chess: build/src/main.o build/src/board_print_plain.o build/src/board.o 
-	mkdir -p bin
+default: bin/chess create
+
+create:
+mkdir -p build
+mkdir -р bin
+
+
+bin/chess: build/main.o build/board_print_plain.o build/board.o 
 	$(CC) $^ -o $@ $(CFLAGS)
 
-build/src/main.o: src/main.c
-	$(MKDIR_BUILD)
+build/main.o: src/main.c
 	$(OBJ)
 
-build/src/board_print_plain.o: src/board_print_plain.c src/board_print_plain.h
-	$(MKDIR_BUILD)
+build/board_print_plain.o: src/board_print_plain.c src/board_print_plain.h
 	$(OBJ)
 
-build/src/board.o: src/board.c src/board.h
-	$(MKDIR_BUILD)
+build/board.o: src/board.c src/board.h
 	$(OBJ)
 
 clean:
-rm -rf build 
+rm -rf build bin
