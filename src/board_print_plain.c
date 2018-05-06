@@ -1,4 +1,7 @@
 #include "board_print_plain.h"
+#include <iostream>
+
+using namespace std; 
 
 void board_start(char deck[8][8]) {
 	char letters[]={'r','n', 'b', 'q', 'k', 'b', 'n', 'r'};
