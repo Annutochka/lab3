@@ -10,7 +10,7 @@ default: bin/chess.exe
 
 
 
-bin/chess.exe: build/src/main.o build/src/board_print_plain.o build/src/board.o 
+bin/chess: build/src/main.o build/src/board_print_plain.o build/src/board.o 
 	mkdir -p bin
 	$(CC) $^ -o $@ $(CFLAGS)
 
@@ -27,4 +27,4 @@ build/src/board.o: src/board.c src/board.h
 	$(OBJ)
 
 clean:
-rm -rf build bin
+rm -rf build 
