@@ -1,21 +1,20 @@
-default: create bin/chess
+default: bin/chess
 
-create:
-mkdir -p build
-mkdir -р bin
-
-
-bin/chess: build/main.o build/board_print_plain.o build/board.o 
+bin/chess: create build/main.o build/board_print_plain.o build/board.o 
 	gcc -Wall -Werror bin/chess -o build/main.o build/board_print_plain.o build/board.o 
 
-build/main.o: src/main.c
-	gcc -c -Wall -Werror src/main.c build/main.o
+build/main.o: create src/main.c
+	gcc  -Wall -Werror src/main.c -o build/main.o    
 
-build/board_print_plain.o: src/board_print_plain.c src/board_print_plain.h
-	gcc -c -Wall -Werror src/board_print_plain.c build/board_print_plain.o
+build/board_print_plain.o: create src/board_print_plain.c src/board_print_plain.h
+	gcc  -Wall -Werror src/board_print_plain.c -o build/board_print_plain.o
 
-build/board.o: src/board.c src/board.h
-	gcc -c -Wall -Werror src/board.c build/board.o
+build/board.o: create src/board.c src/board.h
+	gcc  -Wall -Werror src/board.c -o build/board.o
+
+create:
+	mkdir -p build
+	mkdir -p bin
 
 clean:
-rm -rf build bin
+	rm -rf build bin
