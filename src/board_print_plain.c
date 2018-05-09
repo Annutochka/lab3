@@ -1,7 +1,10 @@
 #include "board_print_plain.h"
-#include <iostream>
+#include "board.h"
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-using namespace std; 
+
 
 void board_start(char deck[8][8]) {
 	char letters[]={'r','n', 'b', 'q', 'k', 'b', 'n', 'r'};
@@ -27,6 +30,6 @@ void board_print(char deck[8][8]) {
 		printf("|\n");
 	}
 	printf("|---------------------|\n");
-	printf("| | A B C D E F J H |\n");
+	printf("|   | A B C D E F J H |\n");
 	printf("-----------------------\n");
 } 
