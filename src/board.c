@@ -63,7 +63,7 @@ void board_start (char a[][9])
 	a[8][8]='h';
 }
 
-void board_print (char a[][9])
+void start_game (char a[][9])
 {
     FILE *fw = fopen("board.txt", "wt");
     char str[5];
