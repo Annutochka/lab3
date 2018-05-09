@@ -104,7 +104,7 @@ void start_game (char a[][9])
         j = 10; i = 10; d = 10; y = 10;
         }
 
-        printboard (a);
+        board_print (a);
     }
     fclose(fw);
 }
