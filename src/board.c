@@ -1,7 +1,8 @@
-#include "board.h";
-#include <iostream>
-
-using namespace std;
+#include "board.h"
+#include "board_print_plain.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 
 void Run_W(char deck[8][8]){
@@ -9,8 +10,8 @@ char n1, temp;
 int n3, n4, i=0;
 board_print(deck);
 while(1){
-cout « "Put coordinates (Expl: e 2 4):\n";
-cin » n1; cin » n3; cin » n4;
+printf("Put coordinates (Expl: e 2 4):\n");
+scanf("%s %d %d",&n1,&n3,&n4);
 n3--; n4--;
 if (n1=='a'){i=0;}
 if (n1=='b'){i=1;}
@@ -24,7 +25,7 @@ if (n1=='h'){i=7;}
 //if (n1!=n2) cout « "Error";
 //printf("\n\ndeck[i][n3]=%d\n\n",deck[i][n3]);
 //printf("\n\ndeck[i][n4]=%d\n\n",deck[i][n4]);
-if ((deck[n3][i]=='p')||(deck[n3][i]=='P')&&(deck[n4][i]==' ')){
+if (((deck[n3][i]=='p') || (deck[n3][i]=='P')) && (deck[n4][i]==' ')){
 temp=deck[n3][i];
 deck[n3][i]=deck[n4][i];
 deck[n4][i]=temp;
@@ -45,8 +46,8 @@ int n3, n4, i=0;
 board_print(deck);
 while(1){
 
-cout « "Put coordinates (Expl: e 2 4):\n";
-cin » n1; cin » n3; cin » n4;
+printf("Put coordinates (Expl: e 2 4):\n");
+scanf("%s %d %d",&n1,&n3,&n4);
 n3--; n4--;
 if (n1=='a'){i=0;}
 if (n1=='b'){i=1;}
@@ -60,7 +61,7 @@ if (n1=='h'){i=7;}
 //if (n1!=n2) cout « "Error";
 //printf("\n\ndeck[i][n3]=%d\n\n",deck[i][n3]);
 //printf("\n\ndeck[i][n4]=%d\n\n",deck[i][n4]);
-if ((deck[n3][i]=='p')||(deck[n3][i]=='P')&&(deck[n4][i]==' ')){
+if (((deck[n3][i]=='p') || (deck[n3][i]=='P')) && (deck[n4][i]==' ')){
 temp=deck[n3][i];
 deck[n3][i]=deck[n4][i];
 deck[n4][i]=temp;
