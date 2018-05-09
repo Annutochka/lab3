@@ -1,20 +1,17 @@
-default: bin/chess
+all: bin/main
 
-bin/chess: create build/main.o build/board_print_plain.o build/board.o 
-	gcc -Wall -Werror bin/chess -o build/main.o build/board_print_plain.o build/board.o 
+bin/main: build/main.o build/board.o build/board_print_plain.o
+	gcc -Wall -Werror build/main.o build/board.o build/board_print_plain.o -o bin/main
 
-build/main.o: create src/main.c
-	gcc  -Wall -Werror src/main.c -o build/main.o    
+build/main.o: src/main.c
+	gcc -std=c99 -Wall -Werror -c src/main.c -o build/main.o
 
-build/board_print_plain.o: create src/board_print_plain.c src/board_print_plain.h
-	gcc  -Wall -Werror src/board_print_plain.c -o build/board_print_plain.o
+build/board.o: src/board.c
+	gcc -std=c99 -Wall -Werror -c src/board.c -o build/board.o
 
-build/board.o: create src/board.c src/board.h
-	gcc  -Wall -Werror src/board.c -o build/board.o
+build/board_print_plain.o: src/board_print_plain.c
+	gcc -std=c99 -Wall -Werror -c src/board_print_plain.c -o build/board_print_plain.o
 
-create:
-	mkdir -p build
-	mkdir -p bin
-
+.PHONY : clean
 clean:
-	rm -rf build bin
+	rm -rf build/*.o
