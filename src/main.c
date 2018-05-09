@@ -1,16 +1,9 @@
-#include <iostream>
-#include <iomanip>
-#include <time.h>
-#include <stdlib.h>
-#include <conio.h>
-#include <string.h>
 #include "board_print_plain.h"
 #include "board.h"
 
-using namespace std;
 
 int main(){
-	char deck[8][8];
+	char deck[9][9];
 	board_start(deck);
 	board_print(deck);
 	start_game(deck); 
