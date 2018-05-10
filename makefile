@@ -1,4 +1,8 @@
-all: bin/main
+all: create bin/main
+
+create:
+	mkdir -p build
+	mkdir -p bin
 
 bin/main: build/main.o build/board.o build/board_print_plain.o
 	gcc -Wall -Werror build/main.o build/board.o build/board_print_plain.o -o bin/main
